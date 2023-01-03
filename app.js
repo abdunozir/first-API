@@ -6,11 +6,12 @@ const { connectData, getData } = require("./connectDb");
 const app = express();
 
 let dataBase;
+let PORT = process.env.PORT || 3000;
 app.use(express.json());
 // server listening...
 connectData((err) => {
   if (!err) {
-    app.listen(3000, () => {
+    app.listen(PORT, () => {
       console.log("listening...");
     });
     dataBase = getData();
